@@ -177,11 +177,15 @@ def get_system_health(verbose: bool = False) -> dict:
         verbose: If True, include detailed metrics
 
     Returns:
-        Dictionary containing system health data
+        Dictionary containing system health data with keys:
+        - cpu_usage: CPU usage percentage
+        - memory_usage: Memory usage percentage
+        - healthy: Boolean indicating overall health
 
     Raises:
         PermissionError: If access denied to system info
     """
+    # Implementation here
     pass
 ```
 
@@ -209,6 +213,24 @@ pytest tests/test_chat.py
 
 # Run with verbose output
 pytest -v
+
+# Run and stop on first failure
+pytest -x
+```
+
+**Test File Structure:**
+
+```
+tests/
+├── __init__.py
+├── test_core/
+│   ├── test_gemini_client.py
+│   ├── test_executor.py
+│   └── test_permission_gate.py
+└── test_api/
+    ├── test_health.py
+    ├── test_chat.py
+    └── test_system_info.py
 ```
 
 ## Documentation
@@ -221,6 +243,7 @@ pytest -v
 | API changes | API docs, examples, CHANGELOG.md    |
 | Deployment  | VERCEL_DEPLOYMENT.md, README.md     |
 | Bug fix     | CHANGELOG.md, relevant docstrings   |
+| Performance | README.md performance section       |
 
 **Documentation Standards:**
 
@@ -229,6 +252,36 @@ pytest -v
 - Add links to related documentation
 - Use proper Markdown formatting
 - Keep examples up-to-date
+- Document breaking changes prominently
+- Include troubleshooting tips
+
+**Docstring Format (Google Style):**
+
+```python
+def example_function(param1: str, param2: int) -> bool:
+    """Brief one-line description.
+
+    Longer description if needed, explaining the function's
+    purpose and behavior in detail.
+
+    Args:
+        param1: Description of param1
+        param2: Description of param2
+
+    Returns:
+        Description of return value
+
+    Raises:
+        ValueError: When validation fails
+        TypeError: When wrong type provided
+
+    Example:
+        >>> result = example_function("test", 42)
+        >>> print(result)
+        True
+    """
+    pass
+```
 
 ## License
 
